@@ -12,8 +12,9 @@ var major_minor_count_sec = 5 * 60;
 var router = express.Router();
 
 router.get("/header", async (req, res) => {
-  var line_id = req.query.line_id;
-  var response = await TempGood.aggregate([
+  const line_id = req.query.line_id;
+  try {
+    const response = await TempGood.aggregate([
     {
       $match: {
         line_id:  new mongoose.Types.ObjectId(line_id),
@@ -162,6 +163,10 @@ router.get("/header", async (req, res) => {
       lastUpdatedAt: moment(data.connection.lastUpdate).local().format(),
     },
   });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 var last_update = new Date();

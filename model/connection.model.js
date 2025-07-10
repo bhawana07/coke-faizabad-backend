@@ -73,8 +73,7 @@ var updateConnection = async function (status, machine, line_id,cb) {
 //updateConnection("plc_error","cam_blister","607cf8a24b10ed43282fbe66")
 
 var getConnection = async function (line_id) {
-    var connection = await Connection.findOne({ line_id: line_id });
-    return connection
+    return Connection.find({ line_id });
 }
 
 module.exports.Connection = Connection;

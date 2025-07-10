@@ -268,7 +268,7 @@ async function processFunction() {
         line.sku != current_batch.product_name.sku_code_in_hmi &&
         line_ob_obj[line_id]["status"] == 2 
         ) {
-        line_ob_obj[line_id]["status"] == 3;
+        line_ob_obj[line_id]["status"] = 3;
         var fgex_data = await getFgexFromHmiCode(line_id, line.sku);
         ChangeoverFromFunction(
           line_id,
@@ -276,41 +276,26 @@ async function processFunction() {
           "System",
           null,
           (err, data) => {
-            line_ob_obj[line_id]["status"] == 2;
+            line_ob_obj[line_id]["status"] = 2;
           }
         );
       }
-      if(
-        line.manual_write_sku != null &&
-        line.manual_on_delay != null &&
-        line.manual_off_delay != null &&
-        line.manual_write_sku != current_batch.product_name.sku_code_in_hmi &&
-        line.manual_off_delay != current_batch.product_name.off_delay &&
-        line.manual_on_delay != current_batch.product_name.on_delay &&
-        current_batch.product_name.sku_topic_write &&
-         line_ob_obj[line_id]["status"] == 2
-        ){
-          writeTagInPlc(
-            current_batch.product_name.sku_topic_write,
-            `[{ "address": ${current_batch.product_name.off_delay_plc_address}, "data": ${current_batch.product_name.off_delay} },{ "address": ${current_batch.product_name.on_delay_plc_address}, "data": ${current_batch.product_name.on_delay} },{ "address": ${current_batch.product_name.sku_write_plc_address}, "data": ${current_batch.product_name.sku_code_in_hmi} }]`
+        if(
+          line.manual_write_sku != null &&
+          line.manual_on_delay != null &&
+          line.manual_off_delay != null &&
+          line.manual_write_sku != current_batch.product_name.sku_code_in_hmi &&
+          line.manual_off_delay != current_batch.product_name.off_delay &&
+          line.manual_on_delay != current_batch.product_name.on_delay &&
+          current_batch.product_name.sku_topic_write &&
+           line_ob_obj[line_id]["status"] == 2
+          ){
+            writeTagInPlc(
+              current_batch.product_name.sku_topic_write,
+              `[{ "address": ${current_batch.product_name.off_delay_plc_address}, "data": ${current_batch.product_name.off_delay} },{ "address": ${current_batch.product_name.on_delay_plc_address}, "data": ${current_batch.product_name.on_delay} },{ "address": ${current_batch.product_name.sku_write_plc_address}, "data": ${current_batch.product_name.sku_code_in_hmi} }]`
         );
 
-      }if(
-        line.manual_write_sku != null &&
-        line.manual_on_delay != null &&
-        line.manual_off_delay != null &&
-        line.manual_write_sku != current_batch.product_name.sku_code_in_hmi &&
-        line.manual_off_delay != current_batch.product_name.off_delay &&
-        line.manual_on_delay != current_batch.product_name.on_delay &&
-        current_batch.product_name.sku_topic_write &&
-         line_ob_obj[line_id]["status"] == 2
-        ){
-          writeTagInPlc(
-            current_batch.product_name.sku_topic_write,
-            `[{ "address": ${current_batch.product_name.off_delay_plc_address}, "data": ${current_batch.product_name.off_delay} },{ "address": ${current_batch.product_name.on_delay_plc_address}, "data": ${current_batch.product_name.on_delay} },{ "address": ${current_batch.product_name.sku_write_plc_address}, "data": ${current_batch.product_name.sku_code_in_hmi} }]`
-        );
-
-      }
+        }
       var current_vendor = await getCurrentvendor(line_id);
       var current_changeover = await getLastChangeover(line_id);
       var current_cip = await getCurrentCip(line_id, d);
@@ -577,7 +562,7 @@ async function processFunction() {
                           }
                         }
                       );
-                    } else if (new Date() - element.plc_timestamp > 180000) {
+                    } else if (new Date() - element.gateway_last_connect > 180000) {
                       updateConnection(
                         "ipc_error",
                         element.machine_name,
@@ -614,7 +599,7 @@ async function processFunction() {
             }
           }else{
             //if any error on not find 
-            line_ob_obj[line_id]["status"] == 2
+            line_ob_obj[line_id]["status"] = 2
           }
         });
       }
