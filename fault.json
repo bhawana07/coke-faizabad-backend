@@ -1,0 +1,86 @@
+{
+    "blow_moulding": {
+        "fault_0":"-",
+        "fault_1": "Internal",
+        "fault_2": "External",
+        "fault_3": "Fallen Bottle",
+        "fault_4": "Bisleri_Sidel_IF03"
+    },
+    "filler": {
+        "fault_0":"-",
+        "fault_1": "Internal",
+        "fault_2": "External",
+        "fault_3": "Fallen Bottle",
+        "fault_4": "Bisleri_Sidel_IF03"
+    },
+    "induction": {
+        "fault_0":"-",
+        "fault_1": "Internal",
+        "fault_2": "External",
+        "fault_3": "Fallen Bottle",
+        "fault_4": "Bisleri_Sidel_IF03"
+    },
+    "x_ray": {
+        "fault_0":"-",
+        "fault_1": "Internal",
+        "fault_2": "External",
+        "fault_3": "Fallen Bottle",
+        "fault_4": "Bisleri_Sidel_IF03"
+    },
+    "accumulation": {
+        "fault_0":"-",
+        "fault_1": "Internal",
+        "fault_2": "External",
+        "fault_3": "Fallen Bottle",
+        "fault_4": "Bisleri_Sidel_IF03"
+    },
+    "unscrambler": {
+        "fault_0":"-",
+        "fault_1": "Internal",
+        "fault_2": "External",
+        "fault_3": "Fallen Bottle",
+        "fault_4": "Bisleri_Sidel_IF03"
+    },
+    "leak_tester": {
+        "fault_0":"-",
+        "fault_1": "Internal",
+        "fault_2": "External",
+        "fault_3": "Fallen Bottle",
+        "fault_4": "Bisleri_Sidel_IF03"
+    },
+    "labeller": {
+        "fault_0":"-",
+        "fault_1": "Internal",
+        "fault_2": "External",
+        "fault_3": "Fallen Bottle",
+        "fault_4": "Bisleri_Sidel_IF03"
+    },
+    "case_packer": {
+        "fault_0":"-",
+        "fault_1": "Internal",
+        "fault_2": "External",
+        "fault_3": "Fallen Bottle",
+        "fault_4": "Bisleri_Sidel_IF03"
+    },
+    "weighing": {
+        "fault_0":"-",
+        "fault_1": "Internal",
+        "fault_2": "External",
+        "fault_3": "Fallen Bottle",
+        "fault_4": "Bisleri_Sidel_IF03"
+    },
+    "case_erector": {
+        "fault_0":"-",
+        "fault_1": "Internal",
+        "fault_2": "External",
+        "fault_3": "Fallen Bottle",
+        "fault_4": "Bisleri_Sidel_IF03"
+    },
+    "camera_coading": {
+        "fault_0":"-",
+        "fault_1": "Internal",
+        "fault_2": "External",
+        "fault_3": "Fallen Bottle",
+        "fault_4": "Bisleri_Sidel_IF03"
+    }
+}
