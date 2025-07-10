@@ -9,7 +9,8 @@ var router = express.Router();
 
 router.get("/header", async (req, res) => {
   var line_id = req.query.line_id;
-  TempGood.aggregate([
+  try{
+  const senddata = await TempGood.aggregate([
     {
       $match:{
         line_id:line_id
@@ -120,8 +121,12 @@ router.get("/header", async (req, res) => {
       },
     },
   ])
-    res.send(senddata)
-  });
+  res.send(senddata)
+  }catch(err){
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
+});
 
 
 module.exports = router;
